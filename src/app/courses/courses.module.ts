@@ -15,12 +15,18 @@ import { CoursesCardListComponent } from './courses-card-list/courses-card-list.
 import { EditCourseDialogComponent } from './edit-course-dialog/edit-course-dialog.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material.module';
+import { LessonEntityService } from './services/lesson-entity.service';
+import { CourseComponent } from './course/course.component';
+import { compareLessons } from '../model/lesson';
 
 const entityMetadata: EntityMetadataMap = {
   Course: {
     entityDispatcherOptions: {
       optimisticUpdate: true,
     },
+  },
+  Lesson: {
+    sortComparer: compareLessons,
   },
 };
 
@@ -29,6 +35,7 @@ const entityMetadata: EntityMetadataMap = {
     CoursesComponent,
     CoursesCardListComponent,
     EditCourseDialogComponent,
+    CourseComponent,
   ],
   imports: [
     CommonModule,
@@ -41,6 +48,7 @@ const entityMetadata: EntityMetadataMap = {
     CourseEntityService,
     CoursesResolverService,
     CoursesDataService,
+    LessonEntityService,
   ],
   entryComponents: [EditCourseDialogComponent],
 })
