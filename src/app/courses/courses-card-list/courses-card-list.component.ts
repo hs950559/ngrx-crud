@@ -40,9 +40,6 @@ export class CoursesCardListComponent implements OnInit {
   }
 
   onDeleteCourse(course: Course) {
-    this.courseService.delete(course).subscribe(
-      () => console.log('Delete completed'),
-      (err) => console.log('Deleted failed', err)
-    );
+    this.courseService.delete(course);
   }
 }
