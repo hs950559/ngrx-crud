@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreRouterConnectingModule, RouterState } from '@ngrx/router-store';
 import { appReducers, metaReducers } from './state/app.reducer';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, PageNotFoundComponent],
@@ -23,6 +24,7 @@ import { appReducers, metaReducers } from './state/app.reducer';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    MatProgressSpinnerModule,
     StoreModule.forRoot(appReducers, { metaReducers }),
     EffectsModule.forRoot([]),
     EntityDataModule.forRoot(entityConfig),
