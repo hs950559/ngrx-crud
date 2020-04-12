@@ -5,6 +5,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { MatIconModule } from '@angular/material/icon';
 
 const materialModules = [
   MatCardModule,
@@ -13,6 +14,7 @@ const materialModules = [
   MatDialogModule,
   MatFormFieldModule,
   MatSelectModule,
+  MatIconModule,
 ];
 
 @NgModule({
