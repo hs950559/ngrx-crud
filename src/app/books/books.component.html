@@ -1,1 +1,36 @@
-<p>books works!</p>
+<div class="header d-flex justify-content-between">
+  <div class="h1">All Books</div>
+  <button class="btn btn-info">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+
+<table class="table table-bordered">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Author</th>
+      <th scope="col">Price</th>
+      <th scope="col">Published Date</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let book of books$ | async">
+      <td>{{ book._id }}</td>
+      <td>{{ book.name }}</td>
+      <td>{{ book.author }}</td>
+      <td>{{ book.price }}</td>
+      <td>{{ book.publishedDate }}</td>
+      <td>
+        <button class="btn btn-primary mr-2" (click)="editBook(book)">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button class="btn btn-danger" (click)="removeBook(book)">
+          <mat-icon>remove</mat-icon>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
