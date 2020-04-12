@@ -1,15 +1,13 @@
 import {Request, Response} from 'express';
 import {COURSES} from "./db-data";
-import {setTimeout} from 'timers';
 
 
 export function saveCourse(req: Request, res: Response) {
 
+    console.log("Saving course ...");
+
     const id = req.params["id"],
         changes = req.body;
-
-    console.log("Saving course", id, JSON.stringify(changes));
-
 
     COURSES[id] = {
         ...COURSES[id],
@@ -18,10 +16,9 @@ export function saveCourse(req: Request, res: Response) {
 
     setTimeout(() => {
 
-        res.status(200).json(COURSES[id]);
+      res.status(200).json(COURSES[id]);
 
     }, 2000);
 
-
-
 }
+

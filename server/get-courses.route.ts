@@ -7,32 +7,32 @@ import {COURSES} from "./db-data";
 
 export function getAllCourses(req: Request, res: Response) {
 
-/*
-    const error = (Math.random() >= 0.5);
+    console.log("Retrieving courses data ...");
 
-    if (error) {
-        console.log("ERROR loading courses!");
-        res.status(500).json({message: 'random error occurred.'});
-    }
-    else { */
+    setTimeout(() => {
 
-        setTimeout(() => {
+      res.status(200).json({payload:Object.values(COURSES)});
 
-             res.status(200).json({payload:Object.values(COURSES)});
+    }, 1000);
 
-        }, 200);
 
-  //  }
+
 }
 
 
-export function getCourseById(req: Request, res: Response) {
+export function getCourseByUrl(req: Request, res: Response) {
 
-    const courseId = req.params["id"];
+    const courseUrl = req.params["courseUrl"];
 
     const courses:any = Object.values(COURSES);
 
-    const course = courses.find(course => course.id == courseId);
+    const course = courses.find(course => course.url == courseUrl);
 
-    res.status(200).json(course);
+    setTimeout(() => {
+
+      res.status(200).json(course);
+
+    }, 1000);
+
+
 }

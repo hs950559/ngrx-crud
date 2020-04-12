@@ -17,7 +17,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../shared/material.module';
 
 const entityMetadata: EntityMetadataMap = {
-  Course: {},
+  Course: {
+    entityDispatcherOptions: {
+      optimisticUpdate: true,
+    },
+  },
 };
 
 @NgModule({
