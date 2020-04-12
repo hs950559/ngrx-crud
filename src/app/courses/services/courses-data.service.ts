@@ -14,4 +14,10 @@ export class CoursesDataService extends DefaultDataService<Course> {
   getAll(): Observable<Course[]> {
     return this.http.get('/api/courses').pipe(map((res: any) => res.payload));
   }
+
+  // update(course): Observable<Course> {
+  //   return this.http
+  //     .put(`/api/courses/${course.id}`, course)
+  //     .pipe(map((res: any) => res));
+  // }
 }
