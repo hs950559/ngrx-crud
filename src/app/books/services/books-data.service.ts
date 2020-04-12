@@ -17,8 +17,13 @@ export class BooksDataService extends DefaultDataService<Book> {
     return this.http.get(this.BASE_URL).pipe(map((res: any) => res));
   }
 
+  add(book): Observable<Book> {
+    return this.http
+      .post(`${this.BASE_URL}`, book)
+      .pipe(map((res: any) => res));
+  }
+
   update(book): Observable<Book> {
-    console.log(book, 'HEMANT');
     return this.http
       .put(`${this.BASE_URL}/${book.id}`, book.changes)
       .pipe(map((res: any) => res));

@@ -40,4 +40,15 @@ export class BooksComponent implements OnInit {
       .afterClosed()
       .subscribe();
   }
+
+  addBook() {
+    const dialogConfig = defaultDialogConfig();
+
+    dialogConfig.data = {
+      dialogTitle: 'Create Book',
+      mode: 'create',
+    };
+
+    this.dialog.open(EditBookDialogComponent, dialogConfig);
+  }
 }

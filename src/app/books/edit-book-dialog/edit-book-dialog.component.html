@@ -16,13 +16,16 @@
       <mat-form-field>
         <input matInput placeholder="Price" formControlName="price" />
       </mat-form-field>
-      <mat-form-field>
-        <input
-          matInput
-          placeholder="Published Date"
-          formControlName="publishedDate"
-        />
-      </mat-form-field>
+      <ng-container *ngIf="mode == 'update'">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Published Date"
+            formControlName="publishedDate"
+            readonly
+          />
+        </mat-form-field>
+      </ng-container>
     </ng-container>
   </ng-container>
 </mat-dialog-content>

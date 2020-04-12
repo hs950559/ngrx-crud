@@ -38,7 +38,7 @@ export class EditBookDialogComponent implements OnInit {
       name: ['', Validators.required],
       author: [''],
       price: [''],
-      publishedDate: [''],
+      publishedDate: [new Date()],
     };
 
     if (this.mode === 'update') {

@@ -1,6 +1,6 @@
 <div class="header d-flex justify-content-between">
   <div class="h1">All Books</div>
-  <button class="btn btn-info">
+  <button class="btn btn-info" (click)="addBook()">
     <mat-icon>add</mat-icon>
   </button>
 </div>
@@ -19,7 +19,9 @@
   <tbody>
     <tr *ngFor="let book of books$ | async">
       <td>{{ book._id }}</td>
-      <td>{{ book.name }}</td>
+      <td>
+        <a [routerLink]="['/books', book._id]">{{ book.name }}</a>
+      </td>
       <td>{{ book.author }}</td>
       <td>{{ book.price }}</td>
       <td>{{ book.publishedDate }}</td>
