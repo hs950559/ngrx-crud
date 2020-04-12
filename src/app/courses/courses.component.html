@@ -1,5 +1,14 @@
+<div class="counters">
+  <p>In Promo: {{ promoTotal$ | async }}</p>
+</div>
 <div class="courses-panel">
-  <h3>All Courses</h3>
+  <div class="header">
+    <h2 class="title">All Courses</h2>
+
+    <button mat-mini-fab>
+      <mat-icon class="add-course-btn" (click)="onAddCourse()">add</mat-icon>
+    </button>
+  </div>
   <mat-tab-group>
     <mat-tab label="Beginners">
       <app-courses-card-list [courses]="beginnerCourses$ | async">

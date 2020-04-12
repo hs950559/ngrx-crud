@@ -38,6 +38,7 @@ const entityMetadata: EntityMetadataMap = {
     CoursesResolverService,
     CoursesDataService,
   ],
+  entryComponents: [EditCourseDialogComponent],
 })
 export class CoursesModule {
   constructor(
