@@ -13,7 +13,8 @@ import { environment } from '../environments/environment';
 import { StoreModule } from '@ngrx/store';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { StoreRouterConnectingModule, RouterState } from '@ngrx/router-store';
+import { appReducers, metaReducers } from './state/app.reducer';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, PageNotFoundComponent],
@@ -22,13 +23,13 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    StoreModule.forRoot(appReducers, { metaReducers }),
     EffectsModule.forRoot([]),
     EntityDataModule.forRoot(entityConfig),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,
     }),
-    StoreModule.forRoot({}, {}),
     StoreRouterConnectingModule.forRoot(),
   ],
   providers: [],
