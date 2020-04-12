@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TiktokService } from './services/tiktok.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tiktok',
@@ -14,17 +15,19 @@ export class TiktokComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      email: [''],
-      password: [''],
-      city: [''],
+      email: ['', { updateOn: 'blur' }],
+      password: ['', { updateOn: 'blur' }],
+      city: ['', { updateOn: 'blur' }],
       state: [''],
-      zip: [''],
-      address: [''],
+      zip: ['', { updateOn: 'blur' }],
+      address: ['', { updateOn: 'blur' }],
       color: [''],
       skill: [''],
       rememberMe: [''],
     });
     this.users$ = this.tiktokService.getUsers();
+
+    this.form.valueChanges.pipe(tap((val) => console.log(val))).subscribe();
   }
 
   saveForm() {
