@@ -19,6 +19,7 @@ export class CoursesResolverService implements Resolve<boolean> {
     return this.coursesService.loaded$.pipe(
       tap((loaded) => {
         if (!loaded) {
+          // it will make backend call and store data in Store
           this.coursesService.getAll();
         }
       }),
