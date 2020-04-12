@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Course } from 'src/app/model/course';
 import { Lesson } from 'src/app/model/lesson';
@@ -11,6 +11,7 @@ import { withLatestFrom, tap, map, delay } from 'rxjs/operators';
   selector: 'app-course',
   templateUrl: './course.component.html',
   styleUrls: ['./course.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CourseComponent implements OnInit {
   course$: Observable<Course>;
