@@ -25,6 +25,11 @@ const routes: Routes = [
       import('./books/books.module').then((m) => m.BooksModule),
   },
   {
+    path: 'tiktok',
+    loadChildren: () =>
+      import('./tiktok/tiktok.module').then((m) => m.TiktokModule),
+  },
+  {
     path: '',
     redirectTo: '/home',
     pathMatch: 'full',
